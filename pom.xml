@@ -79,6 +79,15 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.5</version>
+				<configuration>
+					<excludes>
+						<exclude>com/example/demo/CodeCoverageWith*</exclude>
+						<exclude>com/example/demo/dto/*</exclude>
+						<exclude>com/example/demo/dto/response/*</exclude>
+						<exclude>com/example/demo/model/*</exclude>
+						<exclude>com/example/demo/repository/*</exclude>
+					</excludes>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
@@ -92,6 +101,9 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
+						<configuration>
+							<outputDirectory>target/jacoco-report</outputDirectory>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
