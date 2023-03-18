@@ -27,6 +27,8 @@ public class MovieServiceTest {
     @Mock
     private MovieRepository movieRepository;
 
+    private ModelMapper modelMapper = new ModelMapper();
+
     @Test
     public void getMovieListTest() {
         when(movieRepository.findAll()).thenReturn(
@@ -36,7 +38,6 @@ public class MovieServiceTest {
                 )
         );
 
-        ModelMapper modelMapper = new ModelMapper();
         movieService.setModelMapper(modelMapper);
         List<MovieDTO> movieList = movieService.getMovieList();
 
@@ -51,7 +52,6 @@ public class MovieServiceTest {
     public void getMovieByIdTest() {
         when(movieRepository.findById(3)).thenReturn(Optional.of(new Movie(3, "Name Z", 1979)));
 
-        ModelMapper modelMapper = new ModelMapper();
         movieService.setModelMapper(modelMapper);
         MovieDTO movieById = movieService.getMovieById(3);
 
@@ -64,7 +64,6 @@ public class MovieServiceTest {
     public void getMovieByIdNull() {
         when(movieRepository.findById(3)).thenReturn(Optional.empty());
 
-        ModelMapper modelMapper = new ModelMapper();
         movieService.setModelMapper(modelMapper);
         MovieDTO movieById = movieService.getMovieById(3);
 
@@ -76,7 +75,6 @@ public class MovieServiceTest {
     public void createMovieTest() {
         when(movieRepository.save(any(Movie.class))).thenReturn(new Movie(4, "Name TTT", 1982));
 
-        ModelMapper modelMapper = new ModelMapper();
         movieService.setModelMapper(modelMapper);
 
         MovieDTO createdMovieDTO = movieService.createMovie(new MovieDTO());

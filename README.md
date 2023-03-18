@@ -16,6 +16,7 @@ Measuring code coverage with the Java Code Coverage Library (JaCoCo).
         <configuration>
             <excludes>
                 <exclude>com/example/demo/CodeCoverageWith*</exclude>
+                <exclude>com/example/demo/configuration/*</exclude>
                 <exclude>com/example/demo/dto/*</exclude>
                 <exclude>com/example/demo/dto/response/*</exclude>
                 <exclude>com/example/demo/model/*</exclude>
@@ -49,6 +50,7 @@ Measuring code coverage with the Java Code Coverage Library (JaCoCo).
 ```
     <excludes>
         <exclude>com/example/demo/CodeCoverageWith*</exclude>
+        <exclude>com/example/demo/configuration/*</exclude>
         <exclude>com/example/demo/dto/*</exclude>
         <exclude>com/example/demo/dto/response/*</exclude>
         <exclude>com/example/demo/model/*</exclude>
@@ -75,7 +77,7 @@ Measuring code coverage with the Java Code Coverage Library (JaCoCo).
 ![](./screenshots/jacoco_report_directory.png)
 
 **Right now, there are no tests available and the JaCoCo report says there is a code coverage of 7% 
-for missed instructions and 0% in missed branches:**
+for missed instructions and 0% for missed branches:**
 
 ![Report1](./screenshots/jacoco_report_1.png)
 
