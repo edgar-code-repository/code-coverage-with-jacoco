@@ -80,3 +80,10 @@ Measuring code coverage with the Java Code Coverage Library (JaCoCo).
 
 
 --------------------------------------------------------------------------
+
+**A few unit test were added and now the code coverage has reached 85%:**
+
+![Report2](./screenshots/jacoco_report_2.png)
+
+
+--------------------------------------------------------------------------

@@ -4,6 +4,7 @@ package com.example.demo.service;
 import com.example.demo.dto.MovieDTO;
 import com.example.demo.model.Movie;
 import com.example.demo.repository.MovieRepository;
+import lombok.Setter;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class MovieService {
     private MovieRepository movieRepository;
 
     @Autowired
+    @Setter
     private ModelMapper modelMapper;
 
     public List<MovieDTO> getMovieList() {

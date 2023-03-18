@@ -82,6 +82,7 @@
 				<configuration>
 					<excludes>
 						<exclude>com/example/demo/CodeCoverageWith*</exclude>
+						<exclude>com/example/demo/configuration/*</exclude>
 						<exclude>com/example/demo/dto/*</exclude>
 						<exclude>com/example/demo/dto/response/*</exclude>
 						<exclude>com/example/demo/model/*</exclude>

@@ -75,6 +75,7 @@ public class MovieController {
     @PostMapping("/movies")
     public ResponseEntity<MovieResponseDTO> createMovie(@RequestBody MovieDTO movieDTO) {
         log.debug("[createMovie][START]");
+        log.debug("[createMovie][movieDTO parameter: " + movieDTO.toString() + "]");
 
         movieDTO = movieService.createMovie(movieDTO);
         MovieResponseDTO movieResponse = MovieResponseDTO.builder()
@@ -82,7 +83,7 @@ public class MovieController {
                 .message("Movie was saved!!")
                 .build();
 
-        log.debug("[createMovie][movie saved: " + movieDTO.toString() + "]");
+        if (movieDTO != null) log.debug("[createMovie][movie saved: " + movieDTO.toString() + "]");
         log.debug("[createMovie][END]");
         return ResponseEntity.status(HttpStatus.CREATED).body(movieResponse);
     }
