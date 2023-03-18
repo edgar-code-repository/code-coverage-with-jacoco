@@ -52,6 +52,22 @@ public class MovieControllerTest {
 
         log.debug("mvc result getMoviesListTest: " + mvcResult.getResponse().getContentAsString());
 
+    }
+
+    @Test
+    public void getMoviesListNullTest() throws Exception {
+        when(movieService.getMovieList()).thenReturn(null);
+
+        RequestBuilder request = MockMvcRequestBuilders
+                .get("/movies")
+                .accept(MediaType.APPLICATION_JSON);
+
+        MvcResult mvcResult = mockMvc.perform(request)
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'message':'List is empty!!!'}"))
+                .andReturn();
+
+        log.debug("mvc result getMoviesListNullTest: " + mvcResult.getResponse().getContentAsString());
 
     }
 
@@ -87,7 +103,7 @@ public class MovieControllerTest {
                 .andExpect(content().json("{'message':'Movie was saved!!','movie':{'movieId':1,'name':'Name X','yearRelease':1980}}"))
                 .andReturn();
 
-        log.debug("mvc result getMovieByIdTest: " + mvcResult.getResponse().getContentAsString());
+        log.debug("mvc result createMovieTest: " + mvcResult.getResponse().getContentAsString());
     }
 
 }

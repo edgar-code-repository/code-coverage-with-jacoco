@@ -83,7 +83,7 @@ public class MovieController {
                 .message("Movie was saved!!")
                 .build();
 
-        if (movieDTO != null) log.debug("[createMovie][movie saved: " + movieDTO.toString() + "]");
+        log.debug("[createMovie][movie saved: " + movieDTO.toString() + "]");
         log.debug("[createMovie][END]");
         return ResponseEntity.status(HttpStatus.CREATED).body(movieResponse);
     }

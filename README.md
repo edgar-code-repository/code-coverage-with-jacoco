@@ -74,14 +74,13 @@ Measuring code coverage with the Java Code Coverage Library (JaCoCo).
 
 ![](./screenshots/jacoco_report_directory.png)
 
-**Right now, the report says there is a code coverage of 7% in missed instructions and 0% in missed branches:**
+**Right now, there are no tests available and the JaCoCo report says there is a code coverage of 7% 
+for missed instructions and 0% in missed branches:**
 
 ![Report1](./screenshots/jacoco_report_1.png)
 
-
---------------------------------------------------------------------------
-
-**A few unit test were added and now the code coverage has reached 85%:**
+**A few unit tests were added and now the code coverage has reached 97% for missed instructions 
+and 83% for missed branches:**
 
 ![Report2](./screenshots/jacoco_report_2.png)
 

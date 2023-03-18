@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -57,6 +58,31 @@ public class MovieServiceTest {
         Assertions.assertTrue(movieById != null);
         Assertions.assertEquals(3, movieById.getMovieId());
 
+    }
+
+    @Test
+    public void getMovieByIdNull() {
+        when(movieRepository.findById(3)).thenReturn(Optional.empty());
+
+        ModelMapper modelMapper = new ModelMapper();
+        movieService.setModelMapper(modelMapper);
+        MovieDTO movieById = movieService.getMovieById(3);
+
+        Assertions.assertTrue(movieById == null);
+
+    }
+
+    @Test
+    public void createMovieTest() {
+        when(movieRepository.save(any(Movie.class))).thenReturn(new Movie(4, "Name TTT", 1982));
+
+        ModelMapper modelMapper = new ModelMapper();
+        movieService.setModelMapper(modelMapper);
+
+        MovieDTO createdMovieDTO = movieService.createMovie(new MovieDTO());
+
+        Assertions.assertTrue(createdMovieDTO != null);
+        Assertions.assertEquals(4, createdMovieDTO.getMovieId());
     }
 
 
